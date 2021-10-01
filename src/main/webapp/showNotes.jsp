@@ -13,13 +13,10 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
-<div class="container">
+<body style="background-image:linear-gradient(gray,black,gray)">
 <%@include file="navbar.jsp" %>
-</div>
-<h1>All notes</h1>
 
-<div class="row">
+<div class="container row p-3 m-5">
 	<div class=col-12>
 		<%
 	Session s= factoryP.getFactory().openSession();
@@ -28,12 +25,12 @@
 	
 	for(noteStudent nS:list){
 		%>
-<div class="card">
-  <img class="card-img-top pl-4 pt-4" style="max-width:100px;" src="img/essay.png" alt="Card image cap">
+<div class="card m-2">
+  <img class="card-img-top m-3" style="max-width:100px;" src="img/essay.png" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title"><%= nS.getTitle() %></h5>
     <p class="card-text"><%= nS.getContent() %> </p>
-     <p><%= nS.getAddedDate() %></p>
+     <p style="font-family:bold;"><%= nS.getAddedDate() %></p>
     <a href="DeleteServlet?note_id=<%= nS.getId() %>" class="btn btn-danger">Delete</a>
     <a href="edit.jsp?note_id= <%= nS.getId() %> " class="btn btn-primary">UpDate</a>
 

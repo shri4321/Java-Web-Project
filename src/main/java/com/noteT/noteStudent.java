@@ -3,9 +3,11 @@ package com.noteT;
 import java.util.Date;
 import java.util.Random;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="Notes")
@@ -13,8 +15,13 @@ public class noteStudent {
 	
 	@Id
 	private int id;
+	
 	private String title;
+	
+	
+	@Column(length = 1500)
 	private String content;
+	
 	private  Date addedDate;
 	public int getId() {
 		return id;
